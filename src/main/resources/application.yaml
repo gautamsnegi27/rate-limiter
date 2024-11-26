@@ -1,0 +1,9 @@
+app:
+  rate-limiter:
+    limits:
+      user1__api_v1_developers:
+        limit: 2
+        window-seconds: 3600
+      user2__api_v1_developers:
+        limit: 3
+        window-seconds: 3600
