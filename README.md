@@ -62,14 +62,17 @@ Follow the below steps.
 ### 4.1 Start the application
 
 ```shell
-  # create docker image
-  docker build -t rate-limiter .
-  
-  # Start a new container from a Docker image
-  docker run --name blueoptima -it -p 8080:8080 rate-limiter
-  
-  #to stop the docker container (optional)
-  docker stop blueoptima
+# create snapshot jar
+./mvnw clean package
+
+# create docker image
+docker build -t rate-limiter .
+
+# Start a new container from a Docker image
+docker run --name blueoptima -it -p 8080:8080 rate-limiter
+
+#to stop the docker container (optional)
+docker stop blueoptima
 ```
 
 ### 4.2 APIs
@@ -77,15 +80,15 @@ Follow the below steps.
 **1. Developers api**
 
 ```shell
-  curl --location 'http://localhost:8080/api/v1/developers' \
-  --header 'user-id: user1'
+curl --location 'http://localhost:8080/api/v1/developers' \
+--header 'user-id: user1'
 ```
 
 **2. Organizations api**
 
 ```shell
-  curl --location 'http://localhost:8080/api/v1/organizations' \
-  --header 'user-id: user1'
+curl --location 'http://localhost:8080/api/v1/organizations' \
+--header 'user-id: user1'
 ```
 
 ## 5. Key Assumptions
